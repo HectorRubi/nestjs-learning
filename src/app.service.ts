@@ -7,23 +7,19 @@ import { EnvironmentVariables } from './config/environment-variables';
 @Injectable()
 export class AppService {
   constructor(
-    private readonly configService: ConfigService<EnvironmentVariables>,
+    private readonly configService: ConfigService<EnvironmentVariables, true>,
   ) {}
 
   getHello(): string {
-    const example = this.configService.get('varExample', '', {
+    const example = this.configService.get('varExample', {
       infer: true,
     });
 
-    const dbHost = this.configService.get('nested.variable', 'defaultHost', {
+    const dbHost = this.configService.get('nested.variable', {
       infer: true,
     });
 
     const nested = this.configService.get<NestedConfig>('nested');
-
-    if (!nested) {
-      throw new Error('Nested configuration is missing');
-    }
 
     return `Hello World! ${example} ${dbHost} ${nested.port}`;
   }

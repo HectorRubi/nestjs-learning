@@ -1,10 +1,22 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCatDto } from './dto/create-cat.dto';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Cat } from './entities/cat.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class CatsService {
-  private readonly cats: Cat[] = [];
+  private readonly cats: {
+    id: number;
+    name: string;
+    age: number;
+    breed: string;
+  }[] = [];
+
+  constructor(
+    @InjectRepository(Cat)
+    private readonly catRepository: Repository<Cat>,
+  ) {}
 
   create(createCatDto: CreateCatDto) {
     const id = this.cats.length + 1;
@@ -14,11 +26,11 @@ export class CatsService {
     });
   }
 
-  findAll() {
-    return this.cats;
+  async findAll() {
+    return await this.catRepository.find();
   }
 
-  findOne(id: number) {
-    return this.cats.find((cat) => cat.id === id);
+  async findOne(id: number) {
+    return await this.catRepository.findOneBy({ id });
   }
 }

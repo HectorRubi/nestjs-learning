@@ -7,6 +7,7 @@ export class AppService {
 
   getHello(): string {
     const example = this.configService.get<string>('VAR_EXAMPLE');
-    return `Hello World! ${example}`;
+    const dbHost = this.configService.get<string>('nested.variable');
+    return `Hello World! ${example} ${dbHost}`;
   }
 }

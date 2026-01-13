@@ -9,7 +9,10 @@ export class AppService {
 
   getHello(): string {
     const example = this.configService.get<string>('VAR_EXAMPLE');
-    const dbHost = this.configService.get<string>('nested.variable');
+    const dbHost = this.configService.get<string>(
+      'nested.variable',
+      'defaultHost',
+    );
     const nested = this.configService.get<NestedConfig>('nested');
 
     if (!nested) {

@@ -1,9 +1,13 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 import { BaseEntity } from '../../entities/base.entity';
+// import { Timestamp } from '../../entities/timestamp.entity';
 
 @Entity()
 export class Cat extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Column()
   name: string;
 
@@ -12,4 +16,7 @@ export class Cat extends BaseEntity {
 
   @Column()
   breed: string;
+
+  // @Column(() => Timestamp)
+  // timestamp: Timestamp;
 }

@@ -15,8 +15,8 @@ Project dedicated to implement all the features available for NestJS to learn ho
 
 ## Techniques
 
-- [] Configuration
-- [] Database
+- [x] Configuration
+- [x] Database
 
 ## License
 

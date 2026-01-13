@@ -1,8 +1,9 @@
 export default () => ({
-  varExample: process.env.VAR_EXAMPLE,
-  port: parseInt(process.env.PORT || '3000', 10),
-  nested: {
-    variable: process.env.NESTED_VARIABLE,
+  database: {
+    host: process.env.PG_HOST,
     port: parseInt(process.env.NESTED_PORT || '5432', 10),
+    username: process.env.PG_USER,
+    password: process.env.PG_PASSWORD,
+    name: process.env.PG_DB,
   },
 });

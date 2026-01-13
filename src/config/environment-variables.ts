@@ -1,8 +1,9 @@
 export interface EnvironmentVariables {
-  varExample: string;
-  port: number;
-  nested: {
-    variable: string;
+  database: {
+    host: string;
     port: number;
+    username: string;
+    password: string;
+    name: string;
   };
 }

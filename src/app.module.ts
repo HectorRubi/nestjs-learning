@@ -6,7 +6,7 @@ import { AppService } from './app.service';
 import { CatsModule } from './cats/cats.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), CatsModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), CatsModule],
   controllers: [AppController],
   providers: [AppService],
 })

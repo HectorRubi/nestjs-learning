@@ -8,6 +8,8 @@ import { CatsModule } from './cats/cats.module';
 import configuration from './config/configuration';
 import { Cat } from './cats/entities/cat.entity';
 import { EnvironmentVariables } from './config/environment-variables';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -29,6 +31,8 @@ import { EnvironmentVariables } from './config/environment-variables';
       inject: [ConfigService],
     }),
     CatsModule,
+    AuthModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

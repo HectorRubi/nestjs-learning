@@ -2,9 +2,9 @@
 
 Project dedicated to implement all the features available for NestJS to learn how to use this framework and be able to create backend applications using the wide variety of tools this framework provides.
 
-# Roadmap
+## Roadmap
 
-## Overview
+### Overview
 
 - [x] Controllers
 - [x] Services
@@ -13,10 +13,16 @@ Project dedicated to implement all the features available for NestJS to learn ho
 - [x] Exception Filters
 - [x] Pipes
 
-## Techniques
+### Techniques
 
 - [x] Configuration
 - [x] Database
+
+### Security
+
+- [] Authentication
+
+## Usage
 
 ## License
 
